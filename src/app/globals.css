@@ -1,26 +1,155 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  ──────────────────────────────────────────────────────────────
+  TUTTI ROSCA — Sistema de diseño "Spec-Sheet Técnico"
+  Lenguaje: ficha de ingeniería / plano. Líneas finas, grilla,
+  secciones numeradas, medidas en mono. Acero/carbón dominante,
+  naranja como acento mínimo.
+  Tipografías: Archivo (display) · Inter (texto) · JetBrains Mono (datos)
+  ──────────────────────────────────────────────────────────────
+*/
+
+@theme {
+  /* Superficies */
+  --color-canvas: #e9e9e5; /* fondo exterior (mesa) */
+  --color-paper: #ffffff; /* hoja */
+  --color-paper-2: #f6f6f3; /* hoja alterna */
+
+  /* Tinta / acero */
+  --color-ink: #0c0d0f;
+  --color-ink-800: #17181b;
+  --color-ink-700: #26282d;
+  --color-steel-600: #3f424a;
+  --color-steel-500: #5f636c;
+  --color-steel-400: #888c95;
+  --color-steel-300: #b4b7bd;
+  --color-steel-200: #d6d7d3;
+  --color-steel-100: #ececea;
+
+  /* Líneas técnicas */
+  --color-line: #e0e0db;
+  --color-line-strong: #c9c9c3;
+  --color-line-dark: rgba(255, 255, 255, 0.12);
+
+  /* Acento — naranja industrial (uso mínimo) */
+  --color-ember: #ea580c;
+  --color-ember-bright: #f97316;
+  --color-ember-soft: #fff1e8;
+
+  /* Fuentes */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "SFMono-Regular", monospace;
+
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  border-color: var(--color-line);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-ink);
+  color: #fff;
+}
+
+/* Scrollbar técnica */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper-2);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-steel-300);
+  border: 3px solid var(--color-paper-2);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-steel-400);
+}
+
+/* ── Utilidades de plano ───────────────────────────────────── */
+
+/* Etiqueta mono (reemplaza los "badges" genéricos) */
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* Grilla milimetrada de fondo */
+.blueprint {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-ink) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-ink) 5%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.blueprint-dark {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Marca de esquina (tick de plano) */
+.corner-tick::before,
+.corner-tick::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: currentColor;
+}
+
+/* Subrayado de medida con guiones */
+.dashed-rule {
+  background-image: repeating-linear-gradient(
+    to right,
+    currentColor 0,
+    currentColor 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+/* Marquesina logos */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
 }
