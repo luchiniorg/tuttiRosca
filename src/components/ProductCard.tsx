@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "@/components/icons";
 import { type Product, productPath } from "@/lib/site";
@@ -10,13 +11,15 @@ export function ProductCard({ product, index }: { product: Product; index: strin
       href={productPath(product.slug)}
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line-strong bg-paper transition-all duration-300 hover:-translate-y-1 hover:border-ink hover:shadow-[0_24px_50px_-24px_rgba(12,13,15,0.35)]"
     >
-      {/* Imagen */}
-      <ProductMedia
-        src={product.image}
-        alt={product.name}
-        label={`PRODUCTO ${index}`}
-        className="aspect-[4/3] w-full"
-      />
+      {/* Imagen — el name compartido hace el "morph" hacia el detalle */}
+      <ViewTransition name={`product-${product.slug}`}>
+        <ProductMedia
+          src={product.image}
+          alt={product.name}
+          label={`PRODUCTO ${index}`}
+          className="aspect-[4/3] w-full"
+        />
+      </ViewTransition>
 
       {/* Cuerpo */}
       <div className="flex flex-1 flex-col p-6">

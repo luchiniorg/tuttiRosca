@@ -153,3 +153,24 @@ body {
     animation: none;
   }
 }
+
+/* ── View Transitions ─────────────────────────────────────────────
+   Morph de la foto del producto (card → detalle) + crossfade suave del
+   resto de la página al navegar. */
+::view-transition-group(*) {
+  animation-duration: 380ms;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 260ms;
+}
+
+/* Accesibilidad: sin movimiento si el usuario lo pidió. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

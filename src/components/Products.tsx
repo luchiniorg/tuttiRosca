@@ -13,8 +13,8 @@ export function Products() {
           <SectionHeading
             index="01"
             kicker="Catálogo técnico"
-            title="Varillas roscadas ACME, gatos y piezas a medida"
-            intro="Cada producto con su ficha técnica exacta y un contacto directo para cerrar tu pedido. ¿No encontrás la medida? La fabricamos."
+            title="Agropartes para acoplados, tolvas y casillas rurales"
+            intro="Gatos, varillas roscadas ACME, grampas, elásticos, puntas de eje y más — cada producto con su ficha técnica exacta y contacto directo. ¿No encontrás la medida? La fabricamos."
           />
         </Reveal>
 

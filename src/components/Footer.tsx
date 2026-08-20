@@ -57,7 +57,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href={`tel:${SITE.phoneDisplay.replace(/\s/g, "")}`} className="transition-colors hover:text-ink">
+                <a href={`tel:${SITE.phoneTel}`} className="transition-colors hover:text-ink">
                   {SITE.phoneDisplay}
                 </a>
               </li>

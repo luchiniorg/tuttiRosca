@@ -11,8 +11,9 @@ const inputCls =
   "w-full rounded-xl border border-line-strong bg-paper px-4 py-3 text-sm text-ink outline-none transition-colors placeholder:text-steel-400 focus:border-ink";
 
 const DATA: [string, string, string?][] = [
+  ["Contacto", SITE.contactName],
   ["Email", SITE.email, `mailto:${SITE.email}`],
-  ["Teléfono", SITE.phoneDisplay, `tel:${SITE.phoneDisplay.replace(/\s/g, "")}`],
+  ["Teléfono", SITE.phoneDisplay, `tel:${SITE.phoneTel}`],
   ["Dirección", SITE.address, SITE.mapsLink],
   ["Horarios", SITE.hours],
 ];

@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { ProductGallery } from "@/components/ProductGallery";
 import { ProductCard } from "@/components/ProductCard";
+import { ProductMeasures } from "@/components/ProductMeasures";
 import { TechLabel } from "@/components/ui";
 import {
   PRODUCTS,
@@ -106,7 +107,11 @@ export default async function ProductPage({
 
             <div className="mt-8 grid gap-12 lg:grid-cols-2 lg:gap-16">
               {/* Galería */}
-              <ProductGallery images={images} name={product.name} />
+              <ProductGallery
+                images={images}
+                name={product.name}
+                transitionName={`product-${product.slug}`}
+              />
 
               {/* Info */}
               <div className="flex flex-col">
@@ -190,6 +195,9 @@ export default async function ProductPage({
                 ))}
               </dl>
             </div>
+
+            {/* Medidas disponibles */}
+            {product.measures && <ProductMeasures measures={product.measures} />}
           </div>
         </section>
 
