@@ -58,18 +58,18 @@ export const NAV_LINKS = [
   { label: "Contacto", href: "#contacto" },
 ] as const;
 
-/* Empresas / social proof — TODO: confirmar y sumar logos reales en /public/logos */
+/* Empresas / social proof — logos reales en /public/empresas */
 export const CLIENTS = [
-  "Empresa 1",
-  "Empresa 2",
-  "Empresa 3",
-  "Empresa 4",
-  "Empresa 5",  
-  "Empresa 6",
-  "Empresa 7",
-  "Empresa 8",
-  "Empresa 9",
-  "Empresa 10",
+  { name: "AHT — Alzuarte Hydro Tracción", logo: "/empresas/AHT.png" },
+  { name: "Metalúrgica Diego Canalis", logo: "/empresas/diego-canalis.png" },
+  { name: "Distrimaq", logo: "/empresas/distrimaq.png" },
+  { name: "Fontana", logo: "/empresas/fontana.png" },
+  { name: "Genovese", logo: "/empresas/genovese.png" },
+  { name: "Grosspal", logo: "/empresas/grospal.png" },
+  { name: "Industria FAMER", logo: "/empresas/Industria-FAMER.png" },
+  { name: "John Deere", logo: "/empresas/john-deere.png" },
+  { name: "Palou", logo: "/empresas/palou.png" },
+  { name: "Secman", logo: "/empresas/secman.png" },
 ] as const;
 
 export type Product = {

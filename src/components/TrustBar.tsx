@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { CLIENTS } from "@/lib/site";
 import { TechLabel } from "./ui";
 
@@ -17,12 +18,20 @@ export function TrustBar() {
 
       <div className="marquee-mask overflow-hidden bg-paper py-5">
         <div className="flex w-max animate-marquee items-center">
-          {items.map((name, i) => (
+          {items.map(({ name, logo }, i) => (
             <span key={`${name}-${i}`} className="flex items-center">
-              <span className="font-mono text-sm font-medium uppercase tracking-wide text-steel-500 transition-colors hover:text-ink">
-                {name}
+              {/* Caja uniforme: todos los logos ocupan el mismo espacio y se
+                  ajustan con object-contain, sin importar su proporción */}
+              <span className="relative block h-10 w-36 shrink-0">
+                <Image
+                  src={logo}
+                  alt={name}
+                  fill
+                  sizes="144px"
+                  className="object-contain"
+                />
               </span>
-              <span className="mx-7 text-steel-300">/</span>
+              <span className="mx-6 text-steel-300">/</span>
             </span>
           ))}
         </div>
