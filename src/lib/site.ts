@@ -22,9 +22,9 @@ export const SITE = {
 
   // Contacto
   contactName: "José María Meladolce",
-  phoneDisplay: "03465 497383 / 15654057",
-  phoneTel: "+543465497383", // fijo, limpio para el link tel:
-  whatsapp: "5493465654057", // 15654057 (área 03465) en formato internacional
+  phoneDisplay: "3465-651059",
+  phoneTel: "+5493465651059", // limpio para el link tel:
+  whatsapp: "5493465651059", // 3465-651059 en formato internacional
   whatsappMessage:
     "Hola, vi la web y quería consultar por un producto / presupuesto.",
   email: "tutti-rosca@hotmail.com",
