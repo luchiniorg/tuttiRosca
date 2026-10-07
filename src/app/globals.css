@@ -32,10 +32,10 @@
   --color-line-strong: #c9c9c3;
   --color-line-dark: rgba(255, 255, 255, 0.12);
 
-  /* Acento — naranja industrial (uso mínimo) */
-  --color-ember: #ea580c;
-  --color-ember-bright: #f97316;
-  --color-ember-soft: #fff1e8;
+  /* Acento — rojo del logo (uso mínimo) */
+  --color-ember: #d7201e;
+  --color-ember-bright: #ee3a2f;
+  --color-ember-soft: #fdecea;
 
   /* Fuentes */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
