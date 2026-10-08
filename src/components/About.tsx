@@ -41,10 +41,10 @@ export function About() {
             <figure className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-line-strong bg-paper-2">
               <Image
                 src="/taller.jpg"
-                alt="Taller metalúrgico en Bombal, Santa Fe"
+                alt="Equipo de la metalúrgica familiar en su taller de Bombal, Santa Fe"
                 fill
                 sizes="(min-width: 1024px) 45vw, 100vw"
-                className="object-cover"
+                className="object-cover object-bottom"
               />
               <div className="absolute left-3 top-3 z-10">
                 <span className="label bg-ink/70 px-2 py-1 text-white/85 backdrop-blur-sm">
