@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowDown } from "@/components/icons";
 import { SITE, whatsappUrl } from "@/lib/site";
@@ -15,6 +16,27 @@ const rise = {
 };
 
 export function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [poster, setPoster] = useState("/hero-poster.jpg");
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    setPoster(mq.matches ? "/hero-poster-mobile.jpg" : "/hero-poster.jpg");
+
+    videoRef.current?.play().catch(() => {});
+
+    const handleChange = () => {
+      setPoster(mq.matches ? "/hero-poster-mobile.jpg" : "/hero-poster.jpg");
+      if (videoRef.current) {
+        videoRef.current.load();
+        videoRef.current.play().catch(() => {});
+      }
+    };
+
+    mq.addEventListener("change", handleChange);
+    return () => mq.removeEventListener("change", handleChange);
+  }, []);
+
   return (
     <section
       id="inicio"
@@ -23,14 +45,20 @@ export function Hero() {
       {/* Video de fondo a pantalla completa */}
       <div className="absolute inset-0 -z-10">
         <video
-          className="size-full object-cover"
+          ref={videoRef}
+          className="size-full object-cover bg-[url('/hero-poster-mobile.jpg')] md:bg-[url('/hero-poster.jpg')] bg-cover bg-center"
           autoPlay
           muted
           loop
           playsInline
           preload="metadata"
-          poster="/hero-poster.jpg"
+          poster={poster}
         >
+          <source
+            src="/hero-mobile.mp4"
+            type="video/mp4"
+            media="(max-width: 767px)"
+          />
           <source src="/geminiVideo.mp4" type="video/mp4" />
         </video>
         {/* Capas de oscurecimiento para legibilidad */}
