@@ -55,6 +55,13 @@ export const metadata: Metadata = {
     title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,
   },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
   robots: { index: true, follow: true },
 };
 
@@ -71,6 +78,7 @@ const jsonLd = {
     streetAddress: SITE.address,
     addressLocality: "Bombal",
     addressRegion: "Santa Fe",
+    postalCode: "S2179",
     addressCountry: "AR",
   },
   areaServed: ["Argentina", "Uruguay", "Brasil"],

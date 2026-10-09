@@ -18,7 +18,7 @@ export const SITE = {
   url: "https://www.tuttirosca.com.ar", // TODO: confirmar dominio definitivo
 
   location: "Bombal, Santa Fe, Argentina",
-  address: "Vera Mujica 469, Bombal (2603), Santa Fe, Argentina",
+  address: "Galez 147, S2179 Bombal, Santa Fe",
 
   // Contacto
   contactName: "José María Meladolce",
@@ -31,12 +31,11 @@ export const SITE = {
 
   hours: "Lun a Vie 8:00–17:30 · Sáb 8:00–12:00",
 
-  // Mapa — apunta a la dirección real. TODO opcional: reemplazar por el "src"
-  // del iframe de Google Maps una vez creado el perfil de Google Mi Negocio.
+  // Mapa
   mapsEmbed:
-    "https://www.google.com/maps?q=Vera+Mujica+469,+Bombal,+Santa+Fe,+Argentina&output=embed",
+    "https://maps.google.com/maps?q=Tutti+Rosca,+Galez+147,+Bombal,+Santa+Fe,+Argentina&output=embed",
   mapsLink:
-    "https://www.google.com/maps?q=Vera+Mujica+469,+Bombal,+Santa+Fe,+Argentina",
+    "https://www.google.com/maps/place/Tutti+Rosca/@-33.4593985,-61.3178656,16z/data=!4m6!3m5!1s0x95b7e1003546b13f:0x7130349974ce388b!8m2!3d-33.4593985!4d-61.3128445!16s%2Fg%2F11z73mdnn8",
 
   social: {
     instagram: "https://instagram.com/", // TODO
